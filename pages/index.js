@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Image from 'next/image';
 import Header from '../components/Header';
 
 export default function Home() {
@@ -10,13 +11,32 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
+      <main className="mb-5">
         <Header />
         <div className="flex justify-center py-5 divide-x-2 divide-gray-500">
           <h3 className="text-3xl px-10">Top Deals</h3>
           <h3 className="text-3xl px-10">Product Videos</h3>
           <h3 className="text-3xl px-10">Trending</h3>
         </div>
+
+        <section className="w-11/12 mx-auto py-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div className="h-56 overflow-hidden relative bg-teal-500 rounded-2xl shadow-lg">
+              <Image
+                src={'/images/iphone-1.jpg'}
+                fill={true}
+                objectFit="cover"
+              />
+            </div>
+            <div className="h-56 overflow-hidden relative bg-teal-500 rounded-2xl shadow-lg">
+              <Image
+                src={'/images/iphone-2.jpg'}
+                fill={true}
+                objectFit="cover"
+              />
+            </div>
+          </div>
+        </section>
       </main>
     </div>
   );
