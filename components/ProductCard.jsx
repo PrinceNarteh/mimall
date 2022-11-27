@@ -4,27 +4,27 @@ import { MdOutlineStarPurple500, MdOutlineStarHalf } from 'react-icons/md';
 
 const ProductCard = () => {
   return (
-    <div className="h-[450px] w-72 shadow-lg rounded-lg overflow-hidden">
-      <div className="h-[250px] bg-slate-500 relative">
+    <div className="h-[300px] w-52 shadow-lg rounded-lg overflow-hidden">
+      <div className="h-1/2 bg-slate-500 relative">
         <Image src={'/images/product-1.jpg'} fill={true} objectFit="cover" />
       </div>
-      <div className="p-2 space-y-1">
-        <div className="flex text-2xl text-pink-700">
+      <div className="p-3 space-y-1">
+        <div className="flex items-center justify-between">
+          <h3 className="font-bold">IPhone 13</h3>
+          <span className="text-orange-500">¢105.00</span>
+        </div>
+        {/* <div className="flex text- text-pink-700">
           <MdOutlineStarPurple500 />
           <MdOutlineStarPurple500 />
           <MdOutlineStarPurple500 />
           <MdOutlineStarPurple500 />
           <MdOutlineStarHalf />
-        </div>
+        </div> */}
         <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo
-          distinctio dolorum aperiam.
+          Lorem ipsum dolor sit amet consectetur elit. Libero vero impedit
+          sequi.
         </p>
-        <div className="space-x-2">
-          <span className="text-orange-500 text-xl font-bold">$105.00</span>
-          <span className="line-through text-gray-600 text-lg">$210</span>
-        </div>
-        <button className="border border-pink-500 text-pink-500 px-3 py-1 rounded-md hover:bg-pink-500 hover:text-white duration-200">
+        <button className="border border-pink-500 text-pink-500 text-xs px-3 py-1 rounded-md float-right hover:bg-pink-500 hover:text-white duration-200">
           Add To Cart
         </button>
       </div>

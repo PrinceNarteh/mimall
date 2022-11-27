@@ -42,7 +42,7 @@ export default function Home() {
 
         <section className="w-11/12 mx-auto">
           <SectionHeader />
-          <div className="mt-5 flex justify-evenly gap-10 flex-wrap">
+          <div className="mt-5 flex justify-evenly flex-wrap">
             <ProductCard />
             <ProductCard />
             <ProductCard />
