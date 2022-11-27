@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import Header from '../components/Header';
+import ProductCard from '../components/ProductCard';
 import SectionHeader from '../components/SectionHeader';
 
 export default function Home() {
@@ -39,8 +40,16 @@ export default function Home() {
           </div>
         </section>
 
-        <section>
+        <section className="w-11/12 mx-auto">
           <SectionHeader />
+          <div className="mt-5 flex justify-evenly gap-10 flex-wrap">
+            <ProductCard />
+            <ProductCard />
+            <ProductCard />
+            <ProductCard />
+            <ProductCard />
+            <ProductCard />
+          </div>
         </section>
       </main>
     </div>
