@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Header from '../components/Header';
 
 export default function Home() {
   return (
@@ -9,8 +10,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={'h-screen flex justify-center items-center'}>
-        <h1>MiMall</h1>
+      <main>
+        <Header />
       </main>
     </div>
   );
