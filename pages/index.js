@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Header from '../components/Header';
 import ProductCard from '../components/ProductCard';
+import Section from '../components/Section';
 import SectionHeader from '../components/SectionHeader';
 
 export default function Home() {
@@ -40,8 +41,8 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="w-11/12 mx-auto">
-          <SectionHeader />
+        <section className="w-11/12 mx-auto mb-10">
+          <SectionHeader label={"Today's Best Deal"} />
           <div className="mt-5 flex justify-evenly flex-wrap">
             <ProductCard />
             <ProductCard />
@@ -51,6 +52,32 @@ export default function Home() {
             <ProductCard />
           </div>
         </section>
+
+        <section className="min-h-screen py-10 bg-gray-200">
+          <div className="w-11/12 mx-auto space-y-10">
+            <div className="h-60 rounded-lg relative overflow-hidden">
+              <Image
+                src={'/images/banner-1.jpg'}
+                fill={true}
+                objectFit="cover"
+              />
+            </div>
+            <div className="h-96 bg-teal-500 rounded-lg"></div>
+          </div>
+        </section>
+
+        <Section label={'Top Deals'}>
+          <div className="flex gap-5">
+            <div className="h-40 w-40 bg-gray-400 rounded-lg"></div>
+            <div className="h-40 w-40 bg-gray-400 rounded-lg"></div>
+            <div className="h-40 w-40 bg-gray-400 rounded-lg"></div>
+            <div className="h-40 w-40 bg-gray-400 rounded-lg"></div>
+            <div className="h-40 w-40 bg-gray-400 rounded-lg"></div>
+            <div className="h-40 w-40 bg-gray-400 rounded-lg"></div>
+            <div className="h-40 w-40 bg-gray-400 rounded-lg"></div>
+            <div className="h-40 w-40 bg-gray-400 rounded-lg"></div>
+          </div>
+        </Section>
       </main>
     </div>
   );
