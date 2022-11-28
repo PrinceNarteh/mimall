@@ -66,7 +66,7 @@ export default function Home() {
           </div>
         </section>
 
-        <Section label={'Top Deals'}>
+        <Section label="Top Deals">
           <div className="flex gap-5">
             <div className="h-40 w-40 bg-gray-400 rounded-lg"></div>
             <div className="h-40 w-40 bg-gray-400 rounded-lg"></div>
@@ -78,6 +78,32 @@ export default function Home() {
             <div className="h-40 w-40 bg-gray-400 rounded-lg"></div>
           </div>
         </Section>
+
+        <section className="bg-gray-200 py-10">
+          <div className="w-11/12 mx-auto space-y-10">
+            <div className="h-40 bg-gray-900 flex justify-center items-center">
+              <span className="text-white text-4xl">Trending</span>
+            </div>
+            <div className="h-80 bg-white flex">
+              <div className="p-7 w-60 h-full border-r-2 flex flex-col justify-between items-start">
+                <h3 className="text-4xl font-semibold mb-5">Foods</h3>
+                <div>
+                  <p className="text-xl font-semibold">Processed Food</p>
+                  <p className="text-xl font-semibold">Raw Food</p>
+                </div>
+                <button className="text-orange-500 font-semibold">
+                  Read More
+                </button>
+              </div>
+              <div className="p-7 flex gap-7">
+                <div className="h-full w-60 bg-gray-400"></div>
+                <div className="h-full w-60 bg-gray-400"></div>
+                <div className="h-full w-60 bg-gray-400"></div>
+                <div className="h-full w-60 bg-gray-400"></div>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
     </div>
   );
