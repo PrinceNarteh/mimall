@@ -56,14 +56,11 @@ export default function Home() {
 
         <Section label="Top Deals">
           <div className="flex gap-5">
-            <div className="h-40 w-40 bg-gray-400 rounded-lg"></div>
-            <div className="h-40 w-40 bg-gray-400 rounded-lg"></div>
-            <div className="h-40 w-40 bg-gray-400 rounded-lg"></div>
-            <div className="h-40 w-40 bg-gray-400 rounded-lg"></div>
-            <div className="h-40 w-40 bg-gray-400 rounded-lg"></div>
-            <div className="h-40 w-40 bg-gray-400 rounded-lg"></div>
-            <div className="h-40 w-40 bg-gray-400 rounded-lg"></div>
-            <div className="h-40 w-40 bg-gray-400 rounded-lg"></div>
+            {Array(8)
+              .fill(null)
+              .map(() => (
+                <div className="h-40 w-40 bg-gray-400 rounded-lg"></div>
+              ))}
           </div>
         </Section>
 
@@ -84,10 +81,11 @@ export default function Home() {
                 </button>
               </div>
               <div className="p-7 flex gap-7">
-                <div className="h-full w-60 bg-gray-400"></div>
-                <div className="h-full w-60 bg-gray-400"></div>
-                <div className="h-full w-60 bg-gray-400"></div>
-                <div className="h-full w-60 bg-gray-400"></div>
+                {Array(4)
+                  .fill(null)
+                  .map(() => (
+                    <div className="h-full w-60 bg-gray-400"></div>
+                  ))}
               </div>
             </div>
           </div>
