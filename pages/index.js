@@ -1,9 +1,9 @@
-import Head from 'next/head';
-import Image from 'next/image';
-import Header from '../components/Header';
-import ProductCard from '../components/ProductCard';
-import Section from '../components/Section';
-import SectionHeader from '../components/SectionHeader';
+import Head from "next/head";
+import Image from "next/image";
+import Header from "../components/Header";
+import ProductCard from "../components/ProductCard";
+import Section from "../components/Section";
+import SectionHeader from "../components/SectionHeader";
 
 export default function Home() {
   return (
@@ -25,18 +25,10 @@ export default function Home() {
         <section className="w-11/12 mx-auto py-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             <div className="h-56 overflow-hidden relative bg-teal-500 rounded-2xl shadow-lg">
-              <Image
-                src={'/images/iphone-1.jpg'}
-                fill={true}
-                objectFit="cover"
-              />
+              <Image src={"/images/iphone-1.jpg"} fill={true} />
             </div>
             <div className="h-56 overflow-hidden relative bg-teal-500 rounded-2xl shadow-lg">
-              <Image
-                src={'/images/iphone-2.jpg'}
-                fill={true}
-                objectFit="cover"
-              />
+              <Image src={"/images/iphone-2.jpg"} fill={true} />
             </div>
           </div>
         </section>
@@ -56,11 +48,7 @@ export default function Home() {
         <section className="min-h-screen py-10 bg-gray-200">
           <div className="w-11/12 mx-auto space-y-10">
             <div className="h-60 rounded-lg relative overflow-hidden">
-              <Image
-                src={'/images/banner-1.jpg'}
-                fill={true}
-                objectFit="cover"
-              />
+              <Image src={"/images/banner-1.jpg"} fill={true} />
             </div>
             <div className="h-96 bg-teal-500 rounded-lg"></div>
           </div>
