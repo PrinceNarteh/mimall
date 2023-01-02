@@ -5,7 +5,9 @@ import dbConnect from "../../../utils/dbConnect";
 
 const getAllProduct = async (req, res) => {
   try {
-    res.status(200).json({ message: "All Products" });
+    await dbConnect();
+    const products = await Product.find({});
+    res.status(200).json({ products });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
@@ -19,7 +21,9 @@ const createProduct = async (req, res) => {
       res.status(400).json({ error: errors });
       return;
     }
-    res.status(201).json({ message: "Product Created Successfully" });
+    await dbConnect();
+    const product = await Product.create(result.data);
+    res.status(201).json({ product });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }

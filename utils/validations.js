@@ -12,10 +12,12 @@ export const createProductDto = z.object({
   stock: z
     .number({ required_error: "Stock is required" })
     .gte(0, "Price cannot be negative"),
-  brand: z.string({ required_error: "Brand is required" }).default("Unknown"),
+  brand: z
+    .string({ required_error: "Brand is required" })
+    .min(2, "Brand should be 2 or more characters"),
   category: z
     .string({ required_error: "Category is required" })
-    .default("Unknown"),
+    .min(2, "Category should be 2 or more characters"),
   ratings: z
     .number()
     .min(1, "Minimum rating should be 1")
