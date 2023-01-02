@@ -13,9 +13,9 @@ const getAllProduct = async (req, res) => {
 
 const createProduct = async (req, res) => {
   try {
-    const res = createProductDto.parse(req.body);
-    if (!res.success) {
-      const errors = res.error.errors.map((err) => err.message);
+    const result = createProductDto.safeParse(req.body);
+    if (!result.success) {
+      const errors = result.error.errors.map((err) => err.message);
       res.status(400).json({ error: errors });
       return;
     }
