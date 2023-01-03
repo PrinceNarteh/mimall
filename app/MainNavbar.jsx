@@ -1,13 +1,13 @@
-import React from 'react';
-import { BsHeart } from 'react-icons/bs';
-import { CiUser } from 'react-icons/ci';
-import { TiShoppingCart } from 'react-icons/ti';
+import React from "react";
+import { BsHeart } from "react-icons/bs";
+import { CiUser } from "react-icons/ci";
+import { TiShoppingCart } from "react-icons/ti";
 
 const MainNavbar = () => {
   return (
-    <nav className={'bg-gray-900'}>
+    <nav className={"bg-gray-900"}>
       <div
-        className={'flex justify-between items-center py-7 max-w-7xl mx-auto'}
+        className={"flex justify-between items-center py-7 max-w-7xl mx-auto"}
       >
         <h3 className="text-pink-500 text-3xl">MiMall</h3>
         <div className="flex items-center space-x-2">

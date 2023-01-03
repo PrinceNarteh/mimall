@@ -1,9 +1,9 @@
 import Head from "next/head";
 import Image from "next/image";
-import Header from "../components/Header";
-import ProductCard from "../components/ProductCard";
-import Section from "../components/Section";
-import SectionHeader from "../components/SectionHeader";
+import Header from "./Header";
+import ProductCard from "./ProductCard";
+import Section from "./Section";
+import SectionHeader from "./SectionHeader";
 
 export default function Home() {
   return (
