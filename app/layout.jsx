@@ -6,9 +6,11 @@ export default function RootLayout({ children }) {
   return (
     <html>
       <head />
-      <MainNavbar />
-      {/* <SubNavbar /> */}
-      <body>{children}</body>
+      <body>
+        {/* <MainNavbar /> */}
+        {/* <SubNavbar /> */}
+        {children}
+      </body>
     </html>
   );
 }
