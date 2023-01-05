@@ -1,9 +1,9 @@
 import Image from "next/image";
 import React from "react";
-import Header from "./Header";
-import SectionHeader from "./SectionHeader";
-import ProductCard from "./ProductCard";
-import Section from "./Section";
+import Header from "../components/Header";
+import Section from "../components/Section";
+import SectionHeader from "../components/SectionHeader";
+import ProductCard from "../components/ProductCard";
 
 const Home = () => {
   return (
@@ -50,8 +50,8 @@ const Home = () => {
         <div className="flex gap-5">
           {Array(8)
             .fill(null)
-            .map(() => (
-              <div className="h-40 w-40 bg-gray-400 rounded-lg"></div>
+            .map((_, idx) => (
+              <div key={idx} className="h-40 w-40 bg-gray-400 rounded-lg"></div>
             ))}
         </div>
       </Section>
@@ -75,8 +75,8 @@ const Home = () => {
             <div className="p-7 flex gap-7">
               {Array(4)
                 .fill(null)
-                .map(() => (
-                  <div className="h-full w-60 bg-gray-400"></div>
+                .map((_, idx) => (
+                  <div key={idx} className="h-full w-60 bg-gray-400"></div>
                 ))}
             </div>
           </div>
