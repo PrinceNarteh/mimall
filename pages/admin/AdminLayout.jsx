@@ -13,7 +13,7 @@ export default function AdminLayout({ children }) {
         <Sidebar open={open} setOpen={setOpen} />
         <div
           className={`bg-dark-gray text-off-white min-h-screen ${
-            open ? "ml-72" : "ml-16"
+            open ? "ml-60" : "ml-16"
           } duration-500 px-4`}
         >
           {children}

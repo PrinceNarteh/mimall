@@ -24,7 +24,7 @@ const SideBar = ({ open, setOpen }) => {
   return (
     <div
       className={`bg-[#0e0e0e] fixed top-0 left-0 min-h-screen ${
-        open ? "w-72" : "w-16"
+        open ? "w-60" : "w-16"
       } duration-500 text-gray-100 px-4`}
     >
       <div className="py-3 flex justify-end">

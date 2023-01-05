@@ -1,20 +1,22 @@
 import React from "react";
 import { BsThreeDotsVertical } from "react-icons/bs";
 
-const Card = () => {
+const Card = ({ heading, children }) => {
   return (
     <div className="bg-light-gray p-5">
-      <div className="relative flex items-center justify-between">
-        <h3 className="font-semibold text-2xl mb-3">Header</h3>
+      <div className="relative mb-3">
+        <div className="flex items-center justify-between">
+          <h3 className="font-semibold text-xl">{heading}</h3>
+          <label htmlFor="toggleMenu">
+            <BsThreeDotsVertical className="text-xl cursor-pointer " />
+          </label>
+        </div>
         <input
           id="toggleMenu"
           type="checkbox"
           className=" absolute hidden -right-1 w-8 h-8 cursor-pointer bg-transparent peer"
         />
-        <label htmlFor="toggleMenu">
-          <BsThreeDotsVertical className="text-2xl cursor-pointer " />
-        </label>
-        <div className="hidden absolute right-0 top-11 bg-dark-gray p-2 w-48 border border-light-gray rounded peer-checked:block">
+        <div className="hidden absolute right-0 top-7 bg-dark-gray p-2 w-48 border border-light-gray rounded z-30 peer-checked:block">
           <ul>
             <CardItem>Settings</CardItem>
             <CardItem>Move</CardItem>
@@ -23,12 +25,7 @@ const Card = () => {
           </ul>
         </div>
       </div>
-      <div>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis
-        ratione sint nemo quod voluptates voluptatibus odio, modi ab commodi,
-        officia, atque ad dicta repellat cumque alias cupiditate? Alias, magnam
-        impedit.
-      </div>
+      <div>{children}</div>
     </div>
   );
 };
