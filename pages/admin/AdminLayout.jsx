@@ -1,10 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import "../../../styles/globals.css";
-import { lazy } from "react";
-
-const Sidebar = lazy(() => import("./SideBar"));
+import Sidebar from "./SideBar";
 
 export default function AdminLayout({ children }) {
   const [open, setOpen] = useState(true);
@@ -13,7 +10,7 @@ export default function AdminLayout({ children }) {
     <html>
       <head />
       <body className="bg-background">
-        {/* <Sidebar open={open} setOpen={setOpen} /> */}
+        <Sidebar open={open} setOpen={setOpen} />
         <div
           className={`bg-dark-gray text-off-white min-h-screen ${
             open ? "ml-72" : "ml-16"
