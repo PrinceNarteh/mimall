@@ -5,7 +5,7 @@ import { TiShoppingCart } from "react-icons/ti";
 
 const MainNavbar = () => {
   return (
-    <nav className={"bg-gray-900"}>
+    <div className={"bg-gray-900"}>
       <div
         className={"flex justify-between items-center py-7 max-w-7xl mx-auto"}
       >
@@ -31,7 +31,7 @@ const MainNavbar = () => {
           <TiShoppingCart className="text-pink-500 text-3xl cursor-pointer" />
         </div>
       </div>
-    </nav>
+    </div>
   );
 };
 

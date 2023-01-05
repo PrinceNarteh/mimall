@@ -1,8 +1,9 @@
 import "../styles/globals.css";
 import MainNavbar from "./MainNavbar";
 import SubNavbar from "./SubNavbar";
+import dynamic from "next/dynamic";
 
-export default function RootLayout({ children }) {
+function RootLayout({ children }) {
   return (
     <html>
       <head />
@@ -14,3 +15,5 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
+
+export default RootLayout;

@@ -10,6 +10,11 @@ module.exports = {
       backgroundImage: {
         background: "../assets/images/background.png",
       },
+      colors: {
+        "dark-gray": "#282e38",
+        "light-gray": "#313844",
+        "off-white": "#adb5bd",
+      },
     },
   },
   plugins: [],

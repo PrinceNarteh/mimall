@@ -68,4 +68,4 @@ const SideBar = ({ open, setOpen }) => {
   );
 };
 
-export default dynamic(() => Promise.resolve(SideBar), { ssr: false });
+export default SideBar;

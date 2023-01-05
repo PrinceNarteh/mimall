@@ -2,7 +2,9 @@
 
 import { useState } from "react";
 import "../../../styles/globals.css";
-import Sidebar from "./SideBar";
+import { lazy } from "react";
+
+const Sidebar = lazy(() => import("./SideBar"));
 
 export default function AdminLayout({ children }) {
   const [open, setOpen] = useState(true);
@@ -11,9 +13,9 @@ export default function AdminLayout({ children }) {
     <html>
       <head />
       <body className="bg-background">
-        <Sidebar open={open} setOpen={setOpen} />
+        {/* <Sidebar open={open} setOpen={setOpen} /> */}
         <div
-          className={`min-h-screen ${
+          className={`bg-dark-gray text-off-white min-h-screen ${
             open ? "ml-72" : "ml-16"
           } duration-500 px-4`}
         >
