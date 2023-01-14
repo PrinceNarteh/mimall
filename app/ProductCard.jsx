@@ -6,7 +6,11 @@ const ProductCard = () => {
   return (
     <div className="h-[300px] w-52 shadow-lg rounded-lg overflow-hidden">
       <div className="h-1/2 bg-slate-500 relative">
-        <Image src={"/images/product-1.jpg"} fill={true} />
+        <Image
+          src={"/images/product-1.jpg"}
+          fill={true}
+          style={{ objectFit: "cover" }}
+        />
       </div>
       <div className="p-3 space-y-1">
         <div className="flex items-center justify-between">
@@ -20,10 +24,7 @@ const ProductCard = () => {
           <MdOutlineStarPurple500 />
           <MdOutlineStarHalf />
         </div> */}
-        <p>
-          Lorem ipsum dolor sit amet consectetur elit. Libero vero impedit
-          sequi.
-        </p>
+        <p>Lorem ipsum dolor sit amet consectetur elit. Libero vero impedit.</p>
         <button className="border border-pink-500 text-pink-500 text-xs px-3 py-1 rounded-md float-right hover:bg-pink-500 hover:text-white duration-200">
           Add To Cart
         </button>
