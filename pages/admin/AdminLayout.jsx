@@ -4,7 +4,7 @@ import { useState } from "react";
 import Sidebar from "./SideBar";
 
 export default function AdminLayout({ children }) {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(() => typeof window === "undefined" && true);
 
   return (
     <html>
