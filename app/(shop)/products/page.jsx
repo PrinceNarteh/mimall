@@ -1,6 +1,6 @@
 import React from "react";
 import { BiSearch } from "react-icons/bi";
-import AdminLayout from "../AdminLayout";
+import AdminLayout from "../../(admin)/admin/AdminLayout";
 import Card from "../../../components/Card";
 import Image from "next/image";
 import apple from "../../../assets/images/red-apple.png";

@@ -1,9 +1,9 @@
 import Image from "next/image";
 import React from "react";
-import Header from "../components/Header";
-import Section from "../components/Section";
-import SectionHeader from "../components/SectionHeader";
-import ProductCard from "../components/ProductCard";
+import Header from "./Header";
+import Section from "./Section";
+import SectionHeader from "./SectionHeader";
+import ProductCard from "./ProductCard";
 
 const Home = () => {
   return (
