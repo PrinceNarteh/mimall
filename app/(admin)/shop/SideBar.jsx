@@ -1,13 +1,12 @@
-import React, { useState } from "react";
-import dynamic from "next/dynamic";
 import Link from "next/link";
+import React from "react";
 
+import { AiOutlineHeart, AiOutlineUser } from "react-icons/ai";
+import { FiFolder, FiMessageSquare, FiShoppingCart } from "react-icons/fi";
 import { HiMenuAlt3 } from "react-icons/hi";
 import { MdOutlineDashboard } from "react-icons/md";
 import { RiSettings4Line } from "react-icons/ri";
 import { TbReportAnalytics } from "react-icons/tb";
-import { AiOutlineUser, AiOutlineHeart } from "react-icons/ai";
-import { FiMessageSquare, FiFolder, FiShoppingCart } from "react-icons/fi";
 
 const menus = [
   { name: "dashboard", link: "/", icon: MdOutlineDashboard },

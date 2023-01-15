@@ -1,23 +1,29 @@
 "use client";
 
-import { useState } from "react";
-import Sidebar from "./SideBar";
+import { AiOutlineHeart, AiOutlineUser } from "react-icons/ai";
+import { FiFolder, FiMessageSquare, FiShoppingCart } from "react-icons/fi";
+import { MdOutlineDashboard } from "react-icons/md";
+import { RiSettings4Line } from "react-icons/ri";
+import { TbReportAnalytics } from "react-icons/tb";
+import Layout from "../Layout";
+
+const menus = [
+  { name: "dashboard", link: "/", icon: MdOutlineDashboard },
+  { name: "user", link: "/", icon: AiOutlineUser },
+  { name: "messages", link: "/", icon: FiMessageSquare },
+  { name: "analytics", link: "/", icon: TbReportAnalytics, margin: true },
+  { name: "File Manager", link: "/", icon: FiFolder },
+  { name: "Cart", link: "/", icon: FiShoppingCart },
+  { name: "Saved", link: "/", icon: AiOutlineHeart, margin: true },
+  { name: "Setting", link: "/", icon: RiSettings4Line },
+];
 
 export default function AdminLayout({ children }) {
-  const [open, setOpen] = useState(() => typeof window === "undefined" && true);
-
   return (
     <html>
       <head />
       <body className="bg-background">
-        <Sidebar open={open} setOpen={setOpen} />
-        <div
-          className={`bg-dark-gray text-off-white min-h-screen ${
-            open ? "ml-60" : "ml-16"
-          } duration-500 px-4`}
-        >
-          {children}
-        </div>
+        <Layout menus={menus}>{children}</Layout>
       </body>
     </html>
   );

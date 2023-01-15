@@ -1,26 +1,9 @@
-import React, { useState } from "react";
-import dynamic from "next/dynamic";
 import Link from "next/link";
+import React from "react";
 
 import { HiMenuAlt3 } from "react-icons/hi";
-import { MdOutlineDashboard } from "react-icons/md";
-import { RiSettings4Line } from "react-icons/ri";
-import { TbReportAnalytics } from "react-icons/tb";
-import { AiOutlineUser, AiOutlineHeart } from "react-icons/ai";
-import { FiMessageSquare, FiFolder, FiShoppingCart } from "react-icons/fi";
 
-const menus = [
-  { name: "dashboard", link: "/", icon: MdOutlineDashboard },
-  { name: "user", link: "/", icon: AiOutlineUser },
-  { name: "messages", link: "/", icon: FiMessageSquare },
-  { name: "analytics", link: "/", icon: TbReportAnalytics, margin: true },
-  { name: "File Manager", link: "/", icon: FiFolder },
-  { name: "Cart", link: "/", icon: FiShoppingCart },
-  { name: "Saved", link: "/", icon: AiOutlineHeart, margin: true },
-  { name: "Setting", link: "/", icon: RiSettings4Line },
-];
-
-const SideBar = ({ open, setOpen }) => {
+const SideBar = ({ menus, open, setOpen }) => {
   return (
     <div
       className={`bg-[#0e0e0e] fixed top-0 left-0 min-h-screen ${
