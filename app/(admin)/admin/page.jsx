@@ -1,5 +1,5 @@
 import React from "react";
-import Card from "../../components/Card";
+import Card from "../Card";
 import AdminLayout from "./AdminLayout";
 import { AiOutlineRise, AiOutlineFall } from "react-icons/ai";
 
