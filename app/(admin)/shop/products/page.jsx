@@ -1,15 +1,13 @@
 import React from "react";
 import { BiSearch } from "react-icons/bi";
-import AdminLayout from "../../(admin)/admin/AdminLayout";
-import Card from "../../../components/Card";
+import Card from "../../Card";
 import Image from "next/image";
-import apple from "../../../assets/images/red-apple.png";
-import { products } from "../../../data/data";
-import Status from "../../../components/Status";
+import { products } from "../../../../data/data";
+import Status from "../../Status";
 
 const page = () => {
   return (
-    <AdminLayout>
+    <>
       <Card heading="Product List">
         <div className="bg-light-gray flex items-center border border-gray-600 px-2 rounded">
           <BiSearch className="text-3xl text-gray-500" />
@@ -23,23 +21,26 @@ const page = () => {
         <table className="w-full mt-5 border-separate">
           <thead>
             <tr className="text-left text-xl">
-              <th className="w-14">
+              <th className="w-14 text-center">
                 <input type="checkbox" />
               </th>
-              <th>Product</th>
-              <th className="w-40">Category</th>
-              <th className="w-40">Stock</th>
-              <th className="w-40">Price</th>
+              <th className="px-2">Product</th>
+              <th className="w-40 px-2">Category</th>
+              <th className="w-40 px-2">Stock</th>
+              <th className="w-40 px-2">Price</th>
             </tr>
           </thead>
 
           <tbody className="space-y-20 border-separate border-spacing-10">
             {products.map((product, idx) => (
-              <tr key={idx}>
-                <td>
+              <tr
+                className={`${idx % 2 === 0 && "bg-gray-500 bg-opacity-20"}`}
+                key={idx}
+              >
+                <td className="py-7 text-center">
                   <input type="checkbox" name="" id="" />
                 </td>
-                <td>
+                <td className="px-2">
                   <div className="flex items-center gap-5">
                     <div className="w-12 h-12 relative">
                       <Image
@@ -57,20 +58,21 @@ const page = () => {
                     </div>
                   </div>
                 </td>
-                <td>{product.category}</td>
-                <td>
+                <td className="px-2">{product.category}</td>
+                <td className="px-2">
                   <Status
                     variant={product.stock === 0 ? "danger" : "success"}
                   >{`${
                     product.stock === 0 ? "Out of" : `${product.stock} in`
                   } stock`}</Status>
                 </td>
+                <td className="px-2">10</td>
               </tr>
             ))}
           </tbody>
         </table>
       </Card>
-    </AdminLayout>
+    </>
   );
 };
 

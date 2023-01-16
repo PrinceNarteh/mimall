@@ -8,11 +8,11 @@ import { RiSettings4Line } from "react-icons/ri";
 import { TbReportAnalytics } from "react-icons/tb";
 
 const menus = [
-  { name: "dashboard", link: "/", icon: MdOutlineDashboard },
-  { name: "user", link: "/", icon: AiOutlineUser },
-  { name: "messages", link: "/", icon: FiMessageSquare },
-  { name: "analytics", link: "/", icon: TbReportAnalytics, margin: true },
-  { name: "File Manager", link: "/", icon: FiFolder },
+  { name: "Dashboard", link: "/", icon: MdOutlineDashboard },
+  { name: "Shop List", link: "/", icon: AiOutlineUser },
+  { name: "Customers", link: "/", icon: FiMessageSquare },
+  { name: "Add Customer", link: "/", icon: TbReportAnalytics, margin: true },
+  { name: "Orders", link: "/", icon: FiFolder },
   { name: "Cart", link: "/", icon: FiShoppingCart },
   { name: "Saved", link: "/", icon: AiOutlineHeart, margin: true },
   { name: "Setting", link: "/", icon: RiSettings4Line },

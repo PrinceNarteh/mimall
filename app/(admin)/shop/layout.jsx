@@ -11,7 +11,7 @@ import dynamic from "next/dynamic";
 const Layout = dynamic(() => import("../BaseLayout"), { ssr: false });
 
 const menus = [
-  { name: "dashboard", link: "/", icon: MdOutlineDashboard },
+  { name: "Dashboard", link: "/", icon: MdOutlineDashboard },
   { name: "user", link: "/", icon: AiOutlineUser },
   { name: "messages", link: "/", icon: FiMessageSquare },
   { name: "analytics", link: "/", icon: TbReportAnalytics, margin: true },
