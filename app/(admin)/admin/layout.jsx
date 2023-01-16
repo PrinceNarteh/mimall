@@ -1,3 +1,5 @@
+"use client";
+
 import dynamic from "next/dynamic";
 import { AiOutlineHeart, AiOutlineUser } from "react-icons/ai";
 import { FiFolder, FiMessageSquare, FiShoppingCart } from "react-icons/fi";
@@ -19,12 +21,5 @@ const menus = [
 const BaseLayout = dynamic(() => import("../BaseLayout"), { ssr: false });
 
 export default function AdminLayout({ children }) {
-  return (
-    <html>
-      <head />
-      <body className="bg-background">
-        <BaseLayout menus={menus}>{children}</BaseLayout>
-      </body>
-    </html>
-  );
+  return <BaseLayout menus={menus}>{children}</BaseLayout>;
 }

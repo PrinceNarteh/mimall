@@ -1,15 +1,20 @@
 "use client";
 
 import { useState } from "react";
+import { Poppins } from "@next/font/google";
 import dynamic from "next/dynamic";
 
 const SideBar = dynamic(() => import("./SideBar"), { ssr: false });
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["400"],
+});
 
 export default function BaseLayout({ menus, children }) {
   const [open, setOpen] = useState(true);
 
   return (
-    <html>
+    <html className={poppins.className}>
       <head />
       <body className="bg-background">
         <SideBar open={open} setOpen={setOpen} menus={menus} />
