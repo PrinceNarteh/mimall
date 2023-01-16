@@ -2,7 +2,7 @@ import React from "react";
 import Card from "../Card";
 import { AiOutlineRise, AiOutlineFall } from "react-icons/ai";
 
-const Home = ({ children }) => {
+const Home = () => {
   return (
     <div>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">

@@ -1,12 +1,14 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { AiOutlineHeart, AiOutlineUser } from "react-icons/ai";
 import { FiFolder, FiMessageSquare, FiShoppingCart } from "react-icons/fi";
 import { MdOutlineDashboard } from "react-icons/md";
 import { RiSettings4Line } from "react-icons/ri";
 import { TbReportAnalytics } from "react-icons/tb";
-import Layout from "../Layout";
+import dynamic from "next/dynamic";
+
+const Layout = dynamic(() => import("../BaseLayout"), { ssr: false });
 
 const menus = [
   { name: "dashboard", link: "/", icon: MdOutlineDashboard },

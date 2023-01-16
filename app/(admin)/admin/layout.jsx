@@ -1,11 +1,9 @@
-"use client";
-
+import dynamic from "next/dynamic";
 import { AiOutlineHeart, AiOutlineUser } from "react-icons/ai";
 import { FiFolder, FiMessageSquare, FiShoppingCart } from "react-icons/fi";
 import { MdOutlineDashboard } from "react-icons/md";
 import { RiSettings4Line } from "react-icons/ri";
 import { TbReportAnalytics } from "react-icons/tb";
-import Layout from "../Layout";
 
 const menus = [
   { name: "dashboard", link: "/", icon: MdOutlineDashboard },
@@ -18,12 +16,14 @@ const menus = [
   { name: "Setting", link: "/", icon: RiSettings4Line },
 ];
 
+const BaseLayout = dynamic(() => import("../BaseLayout"), { ssr: false });
+
 export default function AdminLayout({ children }) {
   return (
     <html>
       <head />
       <body className="bg-background">
-        <Layout menus={menus}>{children}</Layout>
+        <BaseLayout menus={menus}>{children}</BaseLayout>
       </body>
     </html>
   );
