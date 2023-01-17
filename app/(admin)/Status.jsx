@@ -18,8 +18,6 @@ const Status = ({ variant = "success", children }) => {
       break;
   }
 
-  console.log(color);
-
   let bgColor = `text-${color}-800 bg-${color}-300`;
 
   return (

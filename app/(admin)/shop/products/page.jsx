@@ -7,7 +7,7 @@ import Status from "../../Status";
 
 const page = () => {
   return (
-    <>
+    <div className="max-w-7xl mx-auto">
       <Card heading="Product List">
         <div className="bg-light-gray flex items-center border border-gray-600 px-2 rounded">
           <BiSearch className="text-3xl text-gray-500" />
@@ -21,13 +21,13 @@ const page = () => {
         <table className="w-full mt-5 border-separate">
           <thead>
             <tr className="text-left text-xl">
-              <th className="w-14 text-center">
+              <th className="w-14 text-center pb-3">
                 <input type="checkbox" />
               </th>
-              <th className="px-2">Product</th>
-              <th className="w-40 px-2">Category</th>
-              <th className="w-40 px-2">Stock</th>
-              <th className="w-40 px-2">Price</th>
+              <th className="px-2 pb-3">Product</th>
+              <th className="w-40 px-2 text-center pb-3">Category</th>
+              <th className="w-40 px-2 text-center pb-3">Stock</th>
+              <th className="w-40 px-2 text-center pb-3">Price</th>
             </tr>
           </thead>
 
@@ -58,21 +58,21 @@ const page = () => {
                     </div>
                   </div>
                 </td>
-                <td className="px-2">{product.category}</td>
-                <td className="px-2">
+                <td className="px-2 text-center">{product.category}</td>
+                <td className="px-2 text-center">
                   <Status
                     variant={product.stock === 0 ? "danger" : "success"}
                   >{`${
                     product.stock === 0 ? "Out of" : `${product.stock} in`
                   } stock`}</Status>
                 </td>
-                <td className="px-2">10</td>
+                <td className="px-2 text-center">10</td>
               </tr>
             ))}
           </tbody>
         </table>
       </Card>
-    </>
+    </div>
   );
 };
 
