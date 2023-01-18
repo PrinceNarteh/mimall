@@ -7,11 +7,14 @@ import { IoIosArrowBack } from "react-icons/io";
 import { MdOutlineDashboard } from "react-icons/md";
 
 const SideBar = ({ menus, open }) => {
-  console.log(menus);
   return (
-    <div className="fixed top-0 left-0 h-screen w-60 bg-gray-900">
+    <div
+      className={`fixed top-0 left-0 h-screen  bg-gray-900 ${
+        open ? "w-60" : "w-16"
+      } duration-300`}
+    >
       <div className="flex flex-col h-full">
-        <div className="px-6 pt-8">
+        <div className="px-4 pt-8">
           <div className="flex items-center justify-between">
             <a
               href="#"
@@ -45,39 +48,50 @@ const SideBar = ({ menus, open }) => {
         </div>
 
         <div className=" flex-1 flex flex-col justify-between">
-          <div className="px-6 pt-4">
+          <div className="px-4 pt-4">
             <ul className="flex flex-col space-y-2">
               {menus.map((menu, index) =>
                 menu?.subLinks ? (
                   <li className="relative" key={index}>
                     <input
                       type="checkbox"
-                      className="absolute peer z-10 top-0 h-[32px] cursor-pointer opacity-0 bg-red-500 w-full"
+                      className="absolute peer z-10 top-0 h-12 cursor-pointer opacity-0 w-full"
                       defaultChecked
                     />
-                    <div className="relative flex justify-between items-center text-gray-500 hover:text-white focus-within:text-white">
-                      <div className="flex items-center w-full">
+                    <div
+                      className={`relative flex justify-between items-center text-gray-500 hover:text-white focus-within:text-white`}
+                    >
+                      <div className="flex items-center w-full cursor-pointer">
                         <div className="absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none">
-                          {React.createElement(menu?.icon)}
+                          {React.createElement(menu?.icon, { size: "24" })}
                         </div>
-                        <span className="inline-block w-full py-2 pl-8 pr-4 text-xs rounded hover:bg-gray-800 focus:outline-none focus:ring-1 focus:ring-gray-500 focus:bg-gray-800">
+                        <span
+                          className={`inline-block w-full py-2 pl-10 pr-4 text-lg rounded hover:bg-gray-800 focus:outline-none focus:ring-1 focus:ring-gray-500 focus:bg-gray-800
+                        ${!open ? "translate-x-10 opacity-0" : ""}
+                        `}
+                        >
                           {menu.name}
                         </span>
                       </div>
-                      <button
-                        className="absolute right-0 flex items-center p-1"
-                        tabIndex="-1"
-                      >
-                        <IoIosArrowBack />
-                      </button>
                     </div>
-                    <div className="pt-2 pl-4 hidden peer-checked:block transition-[display] duration-300">
+
+                    <IoIosArrowBack
+                      className={`absolute text-2xl top-2 right-0 p-1 text-off-white peer-checked:-rotate-90 duration-300
+                      ${open ? "block" : "hidden"}
+                      `}
+                    />
+
+                    <div
+                      className={`pt-2 pl-4 hidden peer-checked:block transition-[display]  duration-300`}
+                    >
                       <ul className="flex flex-col pl-2 text-gray-500 border-l border-gray-700">
                         {menu.subLinks.map((subLink, index) => (
                           <li key={index}>
                             <Link
                               href={subLink.link}
-                              className="inline-block w-full px-4 py-2 text-xs rounded hover:bg-gray-800 hover:text-white focus:outline-none focus:ring-1 focus:ring-gray-500 focus:text-white"
+                              className={`inline-block w-full whitespace-nowrap pl-6 py-2 text-md rounded hover:bg-gray-800 hover:text-white focus:outline-none focus:ring-1 focus:ring-gray-500 focus:text-white
+                              ${open ? "block" : "hidden"}
+                              `}
                             >
                               {subLink.name}
                             </Link>
@@ -89,16 +103,24 @@ const SideBar = ({ menus, open }) => {
                 ) : (
                   <li
                     key={index}
-                    className="relative text-gray-500 hover:text-white focus-within:text-white"
+                    className="flex text-gray-500 hover:text-white focus-within:text-white"
                   >
-                    <div className="absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none">
-                      <MdOutlineDashboard />
+                    <div
+                      className={`relative inset-y-0 left-0 flex items-center pl-2 pointer-events-none
+                    `}
+                    >
+                      {React.createElement(menu.icon, {
+                        size: "24",
+                        className: "block",
+                      })}
                     </div>
                     <Link
                       href={menu.link}
-                      className="inline-block w-full py-2 pl-8 pr-4 text-xs rounded hover:bg-gray-800 focus:outline-none focus:ring-1 focus:ring-gray-500 focus:bg-gray-800"
+                      className={`inline-block w-full py-2 pl-2 pr-4 text-lg rounded hover:bg-gray-800 focus:outline-none focus:ring-1 focus:ring-gray-500 focus:bg-gray-800
+                      ${open ? "block" : "hidden"}
+                      `}
                     >
-                      Dashboard
+                      {menu.name}
                     </Link>
                   </li>
                 )
