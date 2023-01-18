@@ -31,6 +31,7 @@ const OrderDetails = () => {
                         src={apple}
                         width={40}
                         height={40}
+                        alt="apple"
                       />
                       <span>Red Apple</span>
                     </div>
@@ -47,6 +48,7 @@ const OrderDetails = () => {
                         src={apple}
                         width={40}
                         height={40}
+                        alt="Red Apple"
                       />
                       <span>Red Apple</span>
                     </div>

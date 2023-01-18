@@ -10,6 +10,7 @@ const ProductCard = () => {
           src={"/images/product-1.jpg"}
           fill={true}
           style={{ objectFit: "cover" }}
+          alt="product-1"
         />
       </div>
       <div className="p-3 space-y-1">

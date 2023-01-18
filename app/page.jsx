@@ -17,10 +17,10 @@ const Home = () => {
       <section className="w-11/12 mx-auto py-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           <div className="h-56 overflow-hidden relative bg-teal-500 rounded-2xl shadow-lg">
-            <Image src={"/images/iphone-1.jpg"} fill={true} />
+            <Image src={"/images/iphone-1.jpg"} fill={true} alt="iPhone-1" />
           </div>
           <div className="h-56 overflow-hidden relative bg-teal-500 rounded-2xl shadow-lg">
-            <Image src={"/images/iphone-2.jpg"} fill={true} />
+            <Image src={"/images/iphone-2.jpg"} fill={true} alt="iPhone-2" />
           </div>
         </div>
       </section>
@@ -40,7 +40,7 @@ const Home = () => {
       <section className="min-h-screen py-10 bg-gray-200">
         <div className="w-11/12 mx-auto space-y-10">
           <div className="h-60 rounded-lg relative overflow-hidden">
-            <Image src={"/images/banner-1.jpg"} fill={true} />
+            <Image src={"/images/banner-1.jpg"} fill={true} alt="banner" />
           </div>
           <div className="h-96 bg-teal-500 rounded-lg"></div>
         </div>

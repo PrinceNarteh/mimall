@@ -22,7 +22,7 @@ export default function BaseLayout({ menus, children }) {
         <div
           className={`bg-dark-gray text-off-white min-h-screen ${
             !open ? "ml-16" : "ml-60"
-          } duration-500`}
+          } duration-300`}
         >
           <Header open={open} setOpen={setOpen} />
           <div className="px-4 mt-5">{children}</div>
