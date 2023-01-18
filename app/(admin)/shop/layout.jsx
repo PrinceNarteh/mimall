@@ -1,30 +1,47 @@
 "use client";
 
-import React from "react";
-import { AiOutlineHeart, AiOutlineUser } from "react-icons/ai";
-import { FiFolder, FiMessageSquare, FiShoppingCart } from "react-icons/fi";
-import { MdOutlineDashboard } from "react-icons/md";
-import { RiSettings4Line } from "react-icons/ri";
-import { TbReportAnalytics } from "react-icons/tb";
 import dynamic from "next/dynamic";
+import React from "react";
+import { MdOutlineDashboard } from "react-icons/md";
+import { TiShoppingCart } from "react-icons/ti";
+import { FiShoppingBag } from "react-icons/fi";
 
 const Layout = dynamic(() => import("../BaseLayout"), { ssr: false });
 
 const menus = [
-  { name: "Dashboard", link: "/", icon: MdOutlineDashboard },
   {
     name: "Dashboard",
+    link: "/shop",
     icon: MdOutlineDashboard,
+  },
+  {
+    name: "Products",
+    icon: FiShoppingBag,
     subLinks: [
-      { name: "user", link: "/", icon: AiOutlineUser },
-      { name: "messages", link: "/", icon: FiMessageSquare },
+      {
+        name: "Product List",
+        link: "/shop/products",
+      },
+      {
+        name: "Add Product",
+        link: "/shop/products/add-product",
+      },
     ],
   },
-  { name: "analytics", link: "/", icon: TbReportAnalytics, margin: true },
-  { name: "File Manager", link: "/", icon: FiFolder },
-  // { name: "Cart", link: "/", icon: FiShoppingCart },
-  // { name: "Saved", link: "/", icon: AiOutlineHeart, margin: true },
-  // { name: "Setting", link: "/", icon: RiSettings4Line },
+  {
+    name: "Orders",
+    icon: TiShoppingCart,
+    subLinks: [
+      {
+        name: "Order List",
+        link: "/shop/orders",
+      },
+      {
+        name: "Order Details",
+        link: "/shop/orders/1",
+      },
+    ],
+  },
 ];
 
 const ShopAdminLayout = ({ children }) => {
