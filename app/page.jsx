@@ -4,6 +4,7 @@ import Header from "./Header";
 import Section from "./Section";
 import SectionHeader from "./SectionHeader";
 import ProductCard from "./ProductCard";
+import Link from "next/link";
 
 const Home = () => {
   return (
@@ -68,9 +69,9 @@ const Home = () => {
                 <p className="text-xl font-semibold">Processed Food</p>
                 <p className="text-xl font-semibold">Raw Food</p>
               </div>
-              <button className="text-orange-500 font-semibold">
+              <Link href="/more" className="text-orange-500 font-semibold">
                 Read More
-              </button>
+              </Link>
             </div>
             <div className="p-7 flex gap-7">
               {Array(4)
