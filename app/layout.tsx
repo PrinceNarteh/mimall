@@ -1,18 +1,23 @@
-import './globals.css'
+import { Poppins } from "@next/font/google";
+import "../styles/globals.css";
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+import MainNav from "./MainNavbar";
+import SubNavbar from "./SubNavbar";
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["400"],
+});
+
+export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      {/*
-        <head /> will contain the components returned by the nearest parent
-        head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
-      */}
+    <html className={poppins.className}>
       <head />
-      <body>{children}</body>
+      <body>
+        <MainNav />
+        <SubNavbar />
+        {children}
+      </body>
     </html>
-  )
+  );
 }

@@ -1,91 +1,90 @@
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import styles from './page.module.css'
+import Image from "next/image";
+import React from "react";
+import Header from "./Header";
+import Section from "./Section";
+import SectionHeader from "./SectionHeader";
+import ProductCard from "./ProductCard";
+import Link from "next/link";
 
-const inter = Inter({ subsets: ['latin'] })
-
-export default function Home() {
+const Home = () => {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <div className="">
+      <Header />
+      <div className="flex justify-center py-5 divide-x-2 divide-gray-500">
+        <h3 className="text-3xl px-10">Top Deals</h3>
+        <h3 className="text-3xl px-10">Product Videos</h3>
+        <h3 className="text-3xl px-10">Trending</h3>
+      </div>
+      <section className="w-11/12 mx-auto py-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <div className="h-56 overflow-hidden relative bg-teal-500 rounded-2xl shadow-lg">
+            <Image src={"/images/iphone-1.jpg"} fill={true} alt="iPhone-1" />
+          </div>
+          <div className="h-56 overflow-hidden relative bg-teal-500 rounded-2xl shadow-lg">
+            <Image src={"/images/iphone-2.jpg"} fill={true} alt="iPhone-2" />
+          </div>
         </div>
-      </div>
+      </section>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-        <div className={styles.thirteen}>
-          <Image src="/thirteen.svg" alt="13" width={40} height={31} priority />
+      <section className="w-11/12 mx-auto mb-10">
+        <SectionHeader label={"Today's Best Deal"} />
+        <div className="mt-5 flex justify-evenly flex-wrap">
+          <ProductCard />
+          <ProductCard />
+          <ProductCard />
+          <ProductCard />
+          <ProductCard />
+          <ProductCard />
         </div>
-      </div>
+      </section>
 
-      <div className={styles.grid}>
-        <a
-          href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+      <section className="min-h-screen py-10 bg-gray-200">
+        <div className="w-11/12 mx-auto space-y-10">
+          <div className="h-60 rounded-lg relative overflow-hidden">
+            <Image src={"/images/banner-1.jpg"} fill={true} alt="banner" />
+          </div>
+          <div className="h-96 bg-teal-500 rounded-lg"></div>
+        </div>
+      </section>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>Explore the Next.js 13 playground.</p>
-        </a>
+      <Section label="Top Deals">
+        <div className="flex gap-5">
+          {Array(8)
+            .fill(null)
+            .map((_, idx) => (
+              <div key={idx} className="h-40 w-40 bg-gray-400 rounded-lg"></div>
+            ))}
+        </div>
+      </Section>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
-}
+      <section className="bg-gray-200 py-10">
+        <div className="w-11/12 mx-auto space-y-10">
+          <div className="h-40 bg-gray-900 flex justify-center items-center">
+            <span className="text-white text-4xl">Trending</span>
+          </div>
+          <div className="h-80 bg-white flex">
+            <div className="p-7 w-60 h-full border-r-2 flex flex-col justify-between items-start">
+              <h3 className="text-4xl font-semibold mb-5">Foods</h3>
+              <div>
+                <p className="text-xl font-semibold">Processed Food</p>
+                <p className="text-xl font-semibold">Raw Food</p>
+              </div>
+              <Link href="/more" className="text-orange-500 font-semibold">
+                Read More
+              </Link>
+            </div>
+            <div className="p-7 flex gap-7">
+              {Array(4)
+                .fill(null)
+                .map((_, idx) => (
+                  <div key={idx} className="h-full w-60 bg-gray-400"></div>
+                ))}
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default Home;
