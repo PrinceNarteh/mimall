@@ -65,6 +65,7 @@ const OrderDetails = () => {
                         src={apple}
                         width={40}
                         height={40}
+                        alt=""
                       />
                       <span>Red Apple</span>
                     </div>
@@ -129,6 +130,7 @@ const OrderDetails = () => {
                 width={50}
                 height={50}
                 className="rounded-full mr-3"
+                alt=""
               />
               <div>
                 <h3 className="font-bold text-xl">John Doe</h3>
