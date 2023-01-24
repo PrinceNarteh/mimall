@@ -1,11 +1,6 @@
 import { createProductDto } from "../../../utils/validations";
 
-import Product from "../../../models/Product";
-import dbConnect from "../../../utils/dbConnect";
-
 const getAllProduct = async (req, res) => {
-  const query = Object.entries(req.query);
-
   try {
     await dbConnect();
     const products = await Product.find({});
