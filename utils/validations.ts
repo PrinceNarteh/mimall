@@ -27,3 +27,28 @@ export const createProductDto = z.object({
 });
 
 export const updateProductDto = createProductDto.partial();
+
+export const createAccountDto = z.object({
+  firstName: z
+    .string({ required_error: "First name is required." })
+    .min(1, "First name cannot be empty"),
+  lastName: z
+    .string({ required_error: "Last name is required." })
+    .min(1, "Last name cannot be empty"),
+  email: z.string({ required_error: "Email name is required." }).email(),
+  password: z
+    .string({ required_error: "Email name is required." })
+    .min(6, "Password should be six character or more"),
+  role: z.enum(["admin", "shop_owner", "user"], {
+    required_error: "Role is required",
+    invalid_type_error:
+      "Invalid role value. Expect 'admin' | 'shop_owner' | 'user'",
+  }),
+});
+
+export const loginDto = z.object({
+  email: z.string({ required_error: "Email is required" }).email(),
+  password: z
+    .string({ required_error: "Password is required" })
+    .max(6, "Password should be six character or more"),
+});
