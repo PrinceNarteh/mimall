@@ -23,6 +23,7 @@ export const createProductDto = z.object({
     .min(1, "Minimum rating should be 1")
     .max(5, "Maximum rating should be 5")
     .optional(),
+  images: z.string().url(),
 });
 
 export const updateProductDto = createProductDto.partial();

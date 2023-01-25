@@ -1,32 +1,49 @@
+import { NextApiRequest, NextApiResponse } from "next";
 import { createProductDto } from "@/utils/validations";
+import { prisma } from "@/db";
 
-const getAllProduct = async (req, res) => {
+const getAllProduct = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
-    await dbConnect();
-    const products = await Product.find({});
+    const products = await prisma.product.findMany();
     res.status(200).json({ products });
-  } catch (error) {
+  } catch (error: any) {
     res.status(400).json({ error: error.message });
   }
 };
 
-const createProduct = async (req, res) => {
+const createProduct = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const result = createProductDto.safeParse(req.body);
     if (!result.success) {
-      const errors = result.error.errors.map((err) => err.message);
+      const errors = result.error.errors.map((err) => {
+        const key = err.path[0];
+        return { [key]: err.message };
+      });
       res.status(400).json({ error: errors });
       return;
     }
-    await dbConnect();
-    const product = await Product.create(result.data);
+
+    const { brand, category, description, price, stock, title, images } =
+      result.data;
+
+    const product = await prisma.product.create({
+      data: {
+        title,
+        description,
+        price,
+        stock,
+        category,
+        brand,
+        images,
+      },
+    });
     res.status(201).json({ product });
-  } catch (error) {
+  } catch (error: any) {
     res.status(400).json({ error: error.message });
   }
 };
 
-export default async function (req, res) {
+export default async function (req: NextApiRequest, res: NextApiResponse) {
   const { method } = req;
 
   switch (method) {

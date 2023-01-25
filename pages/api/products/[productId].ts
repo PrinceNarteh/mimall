@@ -21,6 +21,8 @@ const updateProduct = async (req: NextApiRequest, res: NextApiResponse) => {
   const productId = req.query.productId as string;
   try {
     const result = updateProductDto.safeParse(req.body);
+
+    console.log(result);
     if (!result.success) {
       const errors = result.error.errors.map((err) => err.message);
       res.status(400).json({ error: errors });
