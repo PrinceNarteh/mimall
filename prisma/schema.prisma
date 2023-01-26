@@ -15,6 +15,17 @@ model Account {
   email      String  @unique
   password   String
   role       Role    @default(USER)
+  shop       Shop?
+}
+
+model Shop {
+  id        String    @id @default(cuid())
+  name      String
+  location  String
+  owner     String
+  accountId String    @unique
+  Account   Account   @relation(fields: [accountId], references: [id])
+  Product   Product[]
 }
 
 model Product {
@@ -29,6 +40,8 @@ model Product {
   images             String
   createdAt          DateTime @default(now())
   updatedAt          DateTime @updatedAt
+  shopId             String
+  shop               Shop     @relation(fields: [shopId], references: [id])
 }
 
 enum Role {
