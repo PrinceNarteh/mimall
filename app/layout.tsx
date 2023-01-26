@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import { Poppins } from "@next/font/google";
+import { Providers } from "./provider";
 import "./globals.css";
 
 import MainNav from "./MainNavbar";
@@ -15,9 +16,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html className={poppins.className}>
       <head />
       <body>
-        <MainNav />
-        <SubNavbar />
-        {children}
+        <Providers>
+          <MainNav />
+          <SubNavbar />
+          {children}
+        </Providers>
       </body>
     </html>
   );
