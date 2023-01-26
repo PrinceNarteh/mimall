@@ -2,9 +2,9 @@
 
 import dynamic from "next/dynamic";
 import React from "react";
+import { FiShoppingBag } from "react-icons/fi";
 import { MdOutlineDashboard } from "react-icons/md";
 import { TiShoppingCart } from "react-icons/ti";
-import { FiShoppingBag } from "react-icons/fi";
 
 const Layout = dynamic(() => import("../BaseLayout"), { ssr: false });
 
@@ -44,7 +44,7 @@ const menus = [
   },
 ];
 
-const ShopAdminLayout = ({ children }) => {
+const ShopAdminLayout = ({ children }: { children: React.ReactNode }) => {
   return <Layout menus={menus}>{children}</Layout>;
 };
 

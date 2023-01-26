@@ -6,7 +6,7 @@ import React from "react";
 import { IoIosArrowBack } from "react-icons/io";
 import { MdOutlineDashboard } from "react-icons/md";
 
-const SideBar = ({ menus, open }) => {
+const SideBar = ({ menus, open }: { menus: any; open: boolean }) => {
   return (
     <div
       className={`fixed top-0 left-0 h-screen  bg-gray-900 ${
@@ -50,7 +50,7 @@ const SideBar = ({ menus, open }) => {
         <div className=" flex-1 flex flex-col justify-between">
           <div className="px-4 pt-4">
             <ul className="flex flex-col space-y-2">
-              {menus.map((menu, index) =>
+              {menus.map((menu: any, index: number) =>
                 menu?.subLinks ? (
                   <li className="relative" key={index}>
                     <input
@@ -63,10 +63,10 @@ const SideBar = ({ menus, open }) => {
                     >
                       <div className="flex items-center w-full cursor-pointer">
                         <div className="absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none">
-                          {React.createElement(menu?.icon, { size: "24" })}
+                          {React.createElement(menu?.icon, { size: "20" })}
                         </div>
                         <span
-                          className={`inline-block w-full py-2 pl-10 pr-4 text-lg rounded hover:bg-gray-800 focus:outline-none focus:ring-1 focus:ring-gray-500 focus:bg-gray-800
+                          className={`inline-block w-full py-2 pl-10 pr-4 text-md rounded hover:bg-gray-800 focus:outline-none focus:ring-1 focus:ring-gray-500 focus:bg-gray-800
                         ${!open ? "translate-x-10 opacity-0" : ""}
                         `}
                         >
@@ -85,11 +85,11 @@ const SideBar = ({ menus, open }) => {
                       className={`pt-2 pl-4 hidden peer-checked:block transition-[display]  duration-300`}
                     >
                       <ul className="flex flex-col pl-2 text-gray-500 border-l border-gray-700">
-                        {menu.subLinks.map((subLink, index) => (
+                        {menu.subLinks.map((subLink: any, index: number) => (
                           <li key={index}>
                             <Link
                               href={subLink.link}
-                              className={`inline-block w-full whitespace-nowrap pl-6 py-2 text-md rounded hover:bg-gray-800 hover:text-white focus:outline-none focus:ring-1 focus:ring-gray-500 focus:text-white
+                              className={`inline-block w-full whitespace-nowrap pl-6 py-2 text-sm rounded hover:bg-gray-800 hover:text-white focus:outline-none focus:ring-1 focus:ring-gray-500 focus:text-white
                               ${open ? "block" : "hidden"}
                               `}
                             >

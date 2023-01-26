@@ -1,25 +1,79 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { AiOutlineHeart, AiOutlineUser } from "react-icons/ai";
-import { FiFolder, FiMessageSquare, FiShoppingCart } from "react-icons/fi";
+import { ReactNode } from "react";
+import { BsShop } from "react-icons/bs";
+import { FaUsers } from "react-icons/fa";
+import { FiShoppingBag } from "react-icons/fi";
 import { MdOutlineDashboard } from "react-icons/md";
-import { RiSettings4Line } from "react-icons/ri";
-import { TbReportAnalytics } from "react-icons/tb";
+import { TiShoppingCart } from "react-icons/ti";
 
 const menus = [
-  { name: "Dashboard", link: "/", icon: MdOutlineDashboard },
-  { name: "Shop List", link: "/", icon: AiOutlineUser },
-  { name: "Customers", link: "/", icon: FiMessageSquare },
-  { name: "Add Customer", link: "/", icon: TbReportAnalytics, margin: true },
-  { name: "Orders", link: "/", icon: FiFolder },
-  { name: "Cart", link: "/", icon: FiShoppingCart },
-  { name: "Saved", link: "/", icon: AiOutlineHeart, margin: true },
-  { name: "Setting", link: "/", icon: RiSettings4Line },
+  {
+    name: "Dashboard",
+    link: "/admin",
+    icon: MdOutlineDashboard,
+  },
+  {
+    name: "Products",
+    icon: FiShoppingBag,
+    subLinks: [
+      {
+        name: "Product List",
+        link: "admin/products",
+      },
+      {
+        name: "Add Product",
+        link: "admin/products/add",
+      },
+    ],
+  },
+  {
+    name: "Shops",
+    icon: BsShop,
+    subLinks: [
+      {
+        name: "Shop List",
+        link: "admin/shops",
+      },
+      {
+        name: "Add Shop Owner",
+        link: "admin/shops/add",
+      },
+    ],
+  },
+  {
+    name: "Shop Owners",
+    icon: FaUsers,
+    subLinks: [
+      {
+        name: "Shop Owners List",
+        link: "admin/shop-owners",
+      },
+      {
+        name: "Add Shop Owner",
+        link: "admin/shop-owners/add",
+      },
+    ],
+  },
+  {
+    name: "Orders",
+    icon: TiShoppingCart,
+    subLinks: [
+      {
+        name: "Order List",
+        link: "admin/orders",
+      },
+      {
+        name: "Order Details",
+        link: "admin/orders/1",
+      },
+    ],
+  },
 ];
 
 const BaseLayout = dynamic(() => import("../BaseLayout"), { ssr: false });
 
-export default function AdminLayout({ children }) {
+export default function AdminLayout({ children }: { children: ReactNode }) {
   return <BaseLayout menus={menus}>{children}</BaseLayout>;
 }
