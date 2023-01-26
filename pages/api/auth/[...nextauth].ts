@@ -3,8 +3,9 @@ import Credentials from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
 import { loginDto } from "@/utils/validations";
 import { prisma } from "@/db";
+import { NextAuthOptions } from "next-auth";
 
-export default NextAuth({
+export const authOptions: NextAuthOptions = NextAuth({
   providers: [
     Credentials({
       id: "credentials",
@@ -42,7 +43,7 @@ export default NextAuth({
       }
       return token;
     },
-    async session({ session, token, user }) {
+    async session({ session, token }) {
       if (session.user) {
         session.user._id = token?._id as string;
         session.user.firstName = token?.firstName as string;
@@ -55,3 +56,5 @@ export default NextAuth({
     signIn: "/auth/login",
   },
 });
+
+export default NextAuth(authOptions);

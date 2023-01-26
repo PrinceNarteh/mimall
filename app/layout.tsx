@@ -1,5 +1,6 @@
+import { ReactNode } from "react";
 import { Poppins } from "@next/font/google";
-import "../styles/globals.css";
+import "./globals.css";
 
 import MainNav from "./MainNavbar";
 import SubNavbar from "./SubNavbar";
@@ -9,7 +10,7 @@ const poppins = Poppins({
   weight: ["400"],
 });
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html className={poppins.className}>
       <head />
