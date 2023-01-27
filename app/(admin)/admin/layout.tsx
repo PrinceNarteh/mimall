@@ -37,7 +37,7 @@ const menus = [
         link: "admin/shops",
       },
       {
-        name: "Add Shop Owner",
+        name: "Add Shop",
         link: "admin/shops/add",
       },
     ],

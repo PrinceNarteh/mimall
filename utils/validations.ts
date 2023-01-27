@@ -37,7 +37,7 @@ export const createAccountDto = z.object({
     .min(1, "Last name cannot be empty"),
   email: z.string({ required_error: "Email name is required." }).email(),
   password: z
-    .string({ required_error: "Email name is required." })
+    .string({ required_error: "Password name is required." })
     .min(6, "Password should be six character or more"),
   role: z.enum(["admin", "shop_owner", "user"], {
     required_error: "Role is required",
@@ -45,6 +45,24 @@ export const createAccountDto = z.object({
       "Invalid role value. Expect 'admin' | 'shop_owner' | 'user'",
   }),
 });
+
+export const createShopOwnerDto = createAccountDto
+  .extend({
+    confirmPassword: z
+      .string({ required_error: "Confirm password name is required." })
+      .min(6, "Password should be six character or more"),
+    role: z
+      .enum(["admin", "shop_owner", "user"], {
+        required_error: "Role is required",
+        invalid_type_error:
+          "Invalid role value. Expect 'admin' | 'shop_owner' | 'user'",
+      })
+      .default("shop_owner"),
+  })
+  .refine((val) => val.password === val.confirmPassword, {
+    message: "Passwords don't match",
+    path: ["confirmPassword"],
+  });
 
 export const loginDto = z.object({
   email: z.string({ required_error: "Email is required" }).email(),

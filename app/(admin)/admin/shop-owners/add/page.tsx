@@ -1,7 +1,94 @@
+"use client";
+
 import React from "react";
+import Card from "@/app/(admin)/Card";
+import InputField from "@/app/InputField";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { createShopOwnerDto } from "@/utils/validations";
 
 const AddShopOwner = () => {
-  return <div>AddShopOwner</div>;
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm({
+    resolver: zodResolver(createShopOwnerDto),
+  });
+
+  const submitHandler = (data: any) => {
+    console.log(data);
+  };
+
+  console.log(errors);
+
+  return (
+    <div className="max-w-4xl mx-auto">
+      <Card heading="Add Shop Owner">
+        <form className="w-full" onSubmit={handleSubmit(submitHandler)}>
+          <div className="flex flex-col lg:flex-row gap-5">
+            <InputField
+              name="firstName"
+              label="First name"
+              register={register}
+              errors={errors}
+              required
+              validationSchema={{ required: "First Name is required" }}
+            />
+            <InputField
+              name="middleName"
+              label="Other name(s)"
+              register={register}
+              errors={errors}
+            />
+            <InputField
+              name="lastName"
+              label="Last name"
+              register={register}
+              errors={errors}
+              required
+              validationSchema={{ required: "Last Name is required" }}
+            />
+          </div>
+          <InputField
+            name="email"
+            label="Email"
+            type="email"
+            register={register}
+            errors={errors}
+            validationSchema={{ required: "Email is required" }}
+            required
+          />
+          <div className="flex flex-col gap-5 md:flex-row">
+            <InputField
+              name="password"
+              label="Password"
+              type="password"
+              register={register}
+              errors={errors}
+              validationSchema={{ required: "Password is required" }}
+              required
+            />
+            <InputField
+              name="confirmPassword"
+              label="Confirm Password"
+              type="password"
+              register={register}
+              errors={errors}
+              validationSchema={{ required: "Confirm password is required" }}
+              required
+            />
+          </div>
+          <button
+            type="submit"
+            className="bg-blue-600 text-white py-2 px-4 rounded"
+          >
+            Create Account
+          </button>
+        </form>
+      </Card>
+    </div>
+  );
 };
 
 export default AddShopOwner;
