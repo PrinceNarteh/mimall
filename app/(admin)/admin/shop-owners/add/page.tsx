@@ -1,13 +1,15 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Card from "@/app/(admin)/Card";
 import InputField from "@/app/InputField";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { createShopOwnerDto } from "@/utils/validations";
+import { httpClient } from "@/utils/httpClient";
 
 const AddShopOwner = () => {
+  const [error, setError] = useState("");
   const {
     register,
     formState: { errors },
@@ -16,8 +18,13 @@ const AddShopOwner = () => {
     resolver: zodResolver(createShopOwnerDto),
   });
 
-  const submitHandler = (data: any) => {
-    console.log(data);
+  const submitHandler = async (data: any) => {
+    try {
+      const res = await httpClient.post("/auth/register", data);
+      console.log(res.data.user);
+    } catch (error: any) {
+      setError(error.response.data.error);
+    }
   };
 
   console.log(errors);
@@ -25,6 +32,7 @@ const AddShopOwner = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Card heading="Add Shop Owner">
+        {error && <li className="py-2">Email already in use.</li>}
         <form className="w-full" onSubmit={handleSubmit(submitHandler)}>
           <div className="flex flex-col lg:flex-row gap-5">
             <InputField

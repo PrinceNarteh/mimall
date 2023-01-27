@@ -7,6 +7,12 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum Role {
+  ADMIN
+  USER
+  SHOP_OWNER
+}
+
 model Account {
   id         String  @id @default(cuid())
   firstName  String
@@ -42,10 +48,4 @@ model Product {
   updatedAt          DateTime @updatedAt
   shopId             String
   shop               Shop     @relation(fields: [shopId], references: [id])
-}
-
-enum Role {
-  ADMIN
-  USER
-  SHOP_OWNER
 }

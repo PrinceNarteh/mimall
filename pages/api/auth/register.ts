@@ -1,4 +1,5 @@
 import { prisma } from "@/db";
+import { mapRoleStringToEnum } from "@/utils/mapper";
 import { createAccountDto } from "@/utils/validations";
 import bcrypt from "bcryptjs";
 import { NextApiHandler, NextApiRequest, NextApiResponse } from "next";
@@ -18,7 +19,7 @@ const handler: NextApiHandler = async (
       const errorsArr = result.error.errors.map((err: any) => err.message);
       return res.status(400).json({ errors: errorsArr });
     } else {
-      const { email, firstName, lastName, password } = result.data;
+      const { email, firstName, lastName, password, role } = result.data;
       const hashedPassword = await bcrypt.hash(password, 12);
       const user = await prisma.account.create({
         data: {
@@ -26,11 +27,16 @@ const handler: NextApiHandler = async (
           lastName,
           email,
           password: hashedPassword,
+          role: mapRoleStringToEnum[role],
         },
       });
       res.status(201).json({ user });
     }
   } catch (error: any) {
+    if (error.message.includes("Account_email_key")) {
+      res.status(409).json({ error: "Email already in use." });
+      return;
+    }
     res.status(500).json({ error: "Internal Server Error" });
   }
 };
