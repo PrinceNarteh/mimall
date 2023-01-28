@@ -15,7 +15,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html className={poppins.className}>
       <head />
-      <body>
+      <body className="bg-gray-100">
         <Providers>
           <MainNav />
           <SubNavbar />
