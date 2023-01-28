@@ -25,13 +25,12 @@ model Account {
 }
 
 model Shop {
-  id        String    @id @default(cuid())
-  name      String
-  location  String
-  owner     String
-  accountId String    @unique
-  Account   Account   @relation(fields: [accountId], references: [id])
-  Product   Product[]
+  id       String    @id @default(cuid())
+  name     String
+  location String
+  owner    String    @unique
+  Account  Account   @relation(fields: [owner], references: [id])
+  Product  Product[]
 }
 
 model Product {
