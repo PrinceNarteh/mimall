@@ -2,6 +2,7 @@ import React from "react";
 import { BsHeart } from "react-icons/bs";
 import { CiUser } from "react-icons/ci";
 import { TiShoppingCart } from "react-icons/ti";
+import Link from "next/link";
 
 const MainNavbar = () => {
   return (
@@ -30,9 +31,12 @@ const MainNavbar = () => {
           <BsHeart className="text-pink-500 text-2xl cursor-pointer" />
           <div className="relative">
             <TiShoppingCart className="text-pink-500 text-3xl cursor-pointer" />
-            <div className="absolute -top-1.5 -right-1.5 w-5 h-5  bg-[red] rounded-full flex justify-center items-center">
+            <Link
+              href={"/cart"}
+              className="absolute -top-1.5 -right-1.5 w-5 h-5  bg-[red] rounded-full flex justify-center items-center"
+            >
               <span className="text-white text-[10px]">20</span>
-            </div>
+            </Link>
           </div>
         </div>
       </div>

@@ -10,7 +10,23 @@ const Cart = () => {
         <CartItem />
         <CartItem />
       </div>
-      <div className="col-span-2 h-20 w-full bg-gray-800"></div>
+      <div className="col-span-2 h-fit w-full space-y-2 border border-gray-400 p-3 rounded shadow-md">
+        <div className="flex justify-between items-center ">
+          <h4>Subtotal</h4>
+          <span>¢200</span>
+        </div>
+        <div className="flex justify-between items-center ">
+          <h4>Delivery</h4>
+          <span>¢200</span>
+        </div>
+        <div className="flex justify-between items-center border-y border-y-gray-400 py-1.5">
+          <h4 className="font-bold">Total</h4>
+          <span>¢200</span>
+        </div>
+        <button className="text-center w-full bg-pink-500 text-white py-3 rounded-md font-bold">
+          Checkout
+        </button>
+      </div>
     </div>
   );
 };

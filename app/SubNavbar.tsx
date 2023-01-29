@@ -1,35 +1,35 @@
-import React from 'react';
-import { BiMenu } from 'react-icons/bi';
-import NavItem from './NavItem';
+import React from "react";
+import { BiMenu } from "react-icons/bi";
+import NavItem from "./NavItem";
 
 const menus = [
   {
-    label: 'Home',
-    link: '/',
+    label: "Home",
+    link: "/",
   },
   {
-    label: 'Cart',
-    link: '/cart',
+    label: "Cart",
+    link: "/cart",
   },
   {
-    label: 'Account',
-    link: '/account',
+    label: "Account",
+    link: "/account",
   },
   {
-    label: 'Sell Adv.',
-    link: '/sell-adv',
+    label: "Sell Adv.",
+    link: "/sell-adv",
   },
   {
-    label: 'Order & Returns',
-    link: '/order-and-returns',
+    label: "Order & Returns",
+    link: "/order-and-returns",
   },
   {
-    label: 'Delivery',
-    link: '/delivery',
+    label: "Delivery",
+    link: "/delivery",
   },
   {
-    label: 'Help',
-    link: '/help',
+    label: "Help",
+    link: "/help",
   },
 ];
 
@@ -44,7 +44,7 @@ const SubNavbar = () => {
         <div>
           <ul className="flex divide-x divide-gray-500">
             {menus.map((menu, index) => (
-              <NavItem key={index} label={menu.label} />
+              <NavItem key={index} label={menu.label} link={menu.link} />
             ))}
           </ul>
         </div>

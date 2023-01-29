@@ -10,7 +10,7 @@ const CartItem = () => {
       <div className="relative w-24 shrink-0">
         <Image src={productOne} fill style={{ objectFit: "contain" }} alt="" />
       </div>
-      <div className="py-2 px-5 flex-1">
+      <div className="border-l border-l-gray-400 py-2 px-5 flex-1">
         <h3 className="font-semibold tracking-wide text-xl line-clamp-1">
           Lorem ipsum dolor dolor dolor sit amet.
         </h3>
