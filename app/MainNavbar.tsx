@@ -28,7 +28,12 @@ const MainNavbar = () => {
         <div className="flex items-center space-x-5">
           <CiUser className="text-pink-500 text-3xl cursor-pointer" />
           <BsHeart className="text-pink-500 text-2xl cursor-pointer" />
-          <TiShoppingCart className="text-pink-500 text-3xl cursor-pointer" />
+          <div className="relative">
+            <TiShoppingCart className="text-pink-500 text-3xl cursor-pointer" />
+            <div className="absolute -top-1.5 -right-1.5 w-5 h-5  bg-[red] rounded-full flex justify-center items-center">
+              <span className="text-white text-[10px]">20</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
