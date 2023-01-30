@@ -1,11 +1,12 @@
+import { prisma } from "@/db";
+import { loginDto } from "@/utils/validations";
+import bcrypt from "bcryptjs";
+import { NextAuthOptions } from "next-auth";
 import NextAuth from "next-auth/next";
 import Credentials from "next-auth/providers/credentials";
-import bcrypt from "bcryptjs";
-import { loginDto } from "@/utils/validations";
-import { prisma } from "@/db";
-import { NextAuthOptions } from "next-auth";
+import { Account } from "@prisma/client";
 
-export const authOptions: NextAuthOptions = NextAuth({
+export const authOptions: NextAuthOptions = {
   providers: [
     Credentials({
       id: "credentials",
@@ -24,10 +25,12 @@ export const authOptions: NextAuthOptions = NextAuth({
 
         const user = await prisma.account.findUnique({ where: { email } });
 
-        if (user && (await bcrypt.compare(password, user.password))) {
-          return user;
-        }
-        return null;
+        if (!user) return null;
+
+        const isMatch = await bcrypt.compare(password, user.password);
+        if (!isMatch) return null;
+
+        return user;
       },
     }),
   ],
@@ -35,17 +38,18 @@ export const authOptions: NextAuthOptions = NextAuth({
     strategy: "jwt",
   },
   callbacks: {
-    async jwt({ token, user }) {
-      if (user) {
-        token._id = user.id;
-        token.firstName = user.firstName;
-        token.lastName = user.lastName;
+    async jwt({ token, account }) {
+      if (account) {
+        token.id = account.id;
+        token.firstName = account.firstName;
+        token.lastName = account.lastName;
+        token.role = account.role;
       }
       return token;
     },
     async session({ session, token }) {
       if (session.user) {
-        session.user._id = token?._id as string;
+        session.id = token.id as string;
         session.user.firstName = token?.firstName as string;
         session.user.lastName = token?.lastName as string;
       }
@@ -55,6 +59,6 @@ export const authOptions: NextAuthOptions = NextAuth({
   pages: {
     signIn: "/auth/login",
   },
-});
+};
 
 export default NextAuth(authOptions);

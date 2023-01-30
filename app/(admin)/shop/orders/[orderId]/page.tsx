@@ -82,6 +82,7 @@ const OrderDetails = () => {
                         src={apple}
                         width={40}
                         height={40}
+                        alt=""
                       />
                       <span>Red Apple</span>
                     </div>

@@ -23,7 +23,7 @@ const CartItem = () => {
             <span className="inline-block">5</span>
             <IoMdArrowDropright className="text-4xl cursor-pointer" />
           </div>
-          <MdDelete className="text-[red] text-2xl cursor-pointer" />
+          <MdDelete className="text-red-500 text-2xl cursor-pointer" />
         </div>
       </div>
     </div>
