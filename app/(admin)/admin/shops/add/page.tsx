@@ -1,29 +1,54 @@
 "use client";
 
-import React, { useState } from "react";
 import Card from "@/app/(admin)/Card";
+import SearchFilter from "@/app/(admin)/SearchFilter";
 import InputField from "@/app/InputField";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { createShopOwnerDto } from "@/utils/validations";
 import { httpClient } from "@/utils/httpClient";
+import { useForm } from "react-hook-form";
+
+const shopOwners = [
+  {
+    id: "120",
+    fullName: "John Doe",
+  },
+  {
+    id: "121",
+    fullName: "Jane Doe",
+  },
+  {
+    id: "122",
+    fullName: "Rose Smith",
+  },
+  {
+    id: "123",
+    fullName: "Araba Amissah",
+  },
+];
 
 const AddShop = () => {
-  const [error, setError] = useState("");
   const {
     register,
     formState: { errors },
+    setValue,
+    setError,
     handleSubmit,
   } = useForm({
-    resolver: zodResolver(createShopOwnerDto),
+    // resolver: zodResolver(createShopOwnerDto),
   });
 
   const submitHandler = async (data: any) => {
+    console.log(data);
+    if (data.shop_owner === "") {
+      setError("shop_owner", {
+        message: "Shop owner is required.",
+      });
+      return;
+    }
     try {
       const res = await httpClient.post("/auth/register", data);
       console.log(res.data.user);
     } catch (error: any) {
-      setError(error.response.data.error);
+      // setError(error.response.data.error);
     }
   };
 
@@ -32,7 +57,6 @@ const AddShop = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Card heading="Add Shop Owner">
-        {error && <li className="py-2">Email already in use.</li>}
         <form className="w-full" onSubmit={handleSubmit(submitHandler)}>
           <div className="w-full my-2">
             <label
@@ -41,19 +65,11 @@ const AddShop = () => {
             >
               Shop Owner
             </label>
-            <input
-              type="text"
-              name="owner"
-              list="shop_owners"
-              className="outline-none bg-transparent border border-gray-500 rounded w-full p-2"
+            <SearchFilter
+              shopOwners={shopOwners}
+              errors={errors}
+              setValue={setValue}
             />
-
-            <datalist id="shop_owners">
-              <option value="">---Search or Select Shop Owner</option>
-              <option value="1">One</option>
-              <option value="1">One</option>
-              <option value="1">One</option>
-            </datalist>
           </div>
           <div className="flex flex-col lg:flex-row gap-5">
             <InputField

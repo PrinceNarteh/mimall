@@ -1,3 +1,5 @@
+"use client";
+
 import { ReactNode } from "react";
 import { Poppins } from "@next/font/google";
 import { Providers } from "./provider";
