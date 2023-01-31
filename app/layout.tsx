@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import { Poppins } from "@next/font/google";
 import { Providers } from "./provider";
+import { Toaster } from "react-hot-toast";
 import "./globals.css";
 
 import MainNav from "./MainNavbar";
@@ -21,6 +22,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <SubNavbar />
           {children}
         </Providers>
+        <Toaster />
       </body>
     </html>
   );

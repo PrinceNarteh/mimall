@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { createShopOwnerDto } from "@/utils/validations";
 import { httpClient } from "@/utils/httpClient";
+import { toast } from "react-hot-toast";
 
 const AddShopOwner = () => {
   const [error, setError] = useState("");
@@ -22,6 +23,7 @@ const AddShopOwner = () => {
     try {
       const res = await httpClient.post("/auth/register", data);
       console.log(res.data.user);
+      toast.success("Account created successfully");
     } catch (error: any) {
       setError(error.response.data.error);
     }
